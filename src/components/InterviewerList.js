@@ -9,11 +9,12 @@ export default function InterviewerList(props) {
     return (
       <InterviewerListItem
         key = {interviewersToRender.id}
-        id = {interviewersToRender.id}
+        //id = {interviewersToRender.id}
         name = {interviewersToRender.name}
         avatar = {interviewersToRender.avatar}
         selected = { interviewersToRender.id === props.interviewer}
-        setInterviewer = {props.setInterviewer}
+        setInterviewer = {() => props.setInterviewer(interviewersToRender.id)
+        }
       />
     )
   });
