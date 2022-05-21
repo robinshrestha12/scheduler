@@ -21,7 +21,7 @@ export default function Form(props) {
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
-        <form autoComplete="off">
+        <form onSubmit={event => event.preventDefault()} autoComplete="off">
           <input
             className="appointment__create-input text--semi-bold"
             name={props.name}
@@ -47,7 +47,7 @@ export default function Form(props) {
       <section className="appointment__card-right">
         <section className="appointment__actions">
           <Button danger onClick={cancel}/* your code goes here */  >Cancel</Button>
-          <Button confirm /* your code goes here */  >Save</Button>
+          <Button confirm onClick={props.onSave}/* your code goes here */  >Save</Button>
         </section>
       </section>
     </main>
