@@ -17,6 +17,7 @@ import Show from "components/Appointment/Show";
 import Confirm from "components/Appointment/Confirm";
 import Status from "components/Appointment/Status";
 import Error from "components/Appointment/Error";
+import Form from "components/Appointment/Form";
 
 storiesOf("Button", module)
   .addParameters({
@@ -139,15 +140,28 @@ storiesOf("InterviewerList", module)
     />
   ));
 
-  storiesOf("Appointment", module)
+storiesOf("Appointment", module)
   .addParameters({
     backgrounds: [{ name: "white", value: "#fff", default: true }]
   })
   .add("Appointment", () => <Appointment />)
   .add("Appointment with Time", () => <Appointment time="12pm" />)
   .add("Header", () => <Header time="12pm" />)
-  .add("Empty", () => <Empty onAdd={action("onAdd")}/>)
-  .add("Show", () => <Show onEdit={action("onEdit")} onDelete={action("Delete")}/>)
-  .add("Confirm", () => <Confirm message = "Delete the appointment?" onConfirm = {action("onConfirm")} onCancel={action("onCancel")}/>)
-  .add("Status", () => <Status message="deleting"/>)
-  .add("Error", () => <Error message="Could not delete appointment." onClose={action("onClose")} />);
+  .add("Empty", () => <Empty onAdd={action("onAdd")} />)
+  .add("Show", () => <Show onEdit={action("onEdit")} onDelete={action("Delete")} />)
+  .add("Confirm", () => <Confirm message="Delete the appointment?" onConfirm={action("onConfirm")} onCancel={action("onCancel")} />)
+  .add("Status", () => <Status message="deleting" />)
+  .add("Error", () => <Error message="Could not delete appointment." onClose={action("onClose")} />)
+  .add("Create", () => <Form
+    interviewers={interviewers}
+    onSave={action("onSave")}
+    onCancel={action("onCancel")}
+  />)
+  .add("Edit", () => <Form
+    key = {2}
+    student="Robin"
+    interviewer="Ian"
+    interviewers={interviewers}
+    onSave={action("onSave")}
+    onCancel={action("onCancel")}
+  />);
