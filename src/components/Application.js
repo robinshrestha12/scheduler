@@ -56,7 +56,7 @@ export default function Application(props) {
       console.log(response);
      setDays([...response.data]);
     })
-  }, [days]);
+  }, [day]);
 
   const schedule = Object.values(appointments).map((appointment) => {
     return (
