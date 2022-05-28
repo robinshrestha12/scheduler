@@ -6,6 +6,7 @@ import axios from "axios";
 import { getAppointmentsForDay, getInterview} from "helpers/selectors";
 
 
+
 // const appointments = {
 //   "1": {
 //     id: 1,
@@ -89,6 +90,7 @@ export default function Application(props) {
 
   const schedule = Object.values( dailyAppointments ).map((appointment) => {
     const interview = getInterview(state, appointment.interview);
+   
     return (
       <Appointment
         key={appointment.id}
