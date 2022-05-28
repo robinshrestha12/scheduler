@@ -14,7 +14,7 @@ export function getAppointmentsForDay(state, name) {
   //Note: if used {} withing map after => then another return word is required.
 }
 export function getInterview(state, interview) {
-  console.log(state.appointments.interview);
+  //console.log(state.appointments.interview);
   const filteredInterview = {};
   if (!interview) return null;
   filteredInterview.student = interview.student;
