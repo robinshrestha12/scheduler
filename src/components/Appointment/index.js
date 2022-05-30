@@ -22,7 +22,11 @@ export default function Appointment(props) {
     };
 
     props.bookInterview(props.id, interview)
-    transition(SHOW);
+   .then(() => {transition(SHOW)});
+
+    
+   // transition(SHOW);
+
   }
   return (
     <article className="appointment">
@@ -33,6 +37,7 @@ export default function Appointment(props) {
         <Show
           student={props.interview.student}
           interviewer={props.interview.interviewer}
+          
         />
       )}
       {mode === CREATE && (
