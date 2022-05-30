@@ -65,6 +65,10 @@ export default function Application(props) {
   const setDay = day => setState({ ...state, day });
   //const setDays = (days) => setState(prev => ({ ...prev, days }));
 
+  function bookInterview(id, interview){
+    console.log(id, interview);
+  }
+ 
   useEffect(() => {
     const urlDays = `/api/days`;
     const urlAppointments = `/api/appointments`;
@@ -99,6 +103,7 @@ export default function Application(props) {
         time={appointment.time}
         interview={interview}
         interviewers={interviewers}
+        bookInterview={bookInterview}
 
      // {...appointment}
 
