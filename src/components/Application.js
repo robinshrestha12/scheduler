@@ -1,57 +1,16 @@
-import React, { useState, useEffect } from "react";
+//import React, { useState, useEffect } from "react";
+import React from "react";
 import DayList from "./DayList";
 import Appointment from "./Appointment";
 import "components/Application.scss";
-import axios from "axios";
+//import axios from "axios";
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
-
-
-
-// const appointments = {
-//   "1": {
-//     id: 1,
-//     time: "12pm",
-//   },
-//   "2": {
-//     id: 2,
-//     time: "1pm",
-//     interview: {
-//       student: "Lydia Miller-Jones",
-//       interviewer: {
-//         id: 3,
-//         name: "Sylvia Palmer",
-//         avatar: "https://i.imgur.com/LpaY82x.png",
-//       }
-//     }
-//   },
-//   "3": {
-//     id: 3,
-//     time: "2pm",
-//   },
-//   "4": {
-//     id: 4,
-//     time: "3pm",
-//     interview: {
-//       student: "Archie Andrews",
-//       interviewer: {
-//         id: 4,
-//         name: "Cohana Roy",
-//         avatar: "https://i.imgur.com/FK8V841.jpg",
-//       }
-//     }
-//   },
-//   "5": {
-//     id: 5,
-//     time: "4pm",
-//   }
-// };
-
+import useApplicationData from "hooks/useApplicationData";
 
 
 export default function Application(props) {
-  //const [day, setDay] = useState("Monday");
-  //const [days, setDays] = useState([]);
 
+  {/* 
   const [state, setState] = useState({
     day: "Monday",
     days: [],
@@ -126,6 +85,17 @@ export default function Application(props) {
       setState(prev => ({ ...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
     })
   }, []);
+
+*/}
+
+  const {
+    state,
+    setDay,
+    bookInterview,
+    cancelInterview
+  } = useApplicationData();
+
+  const dailyAppointments = getAppointmentsForDay(state, state.day);
 
   const schedule = Object.values(dailyAppointments).map((appointment) => {
     const interview = getInterview(state, appointment.interview);
