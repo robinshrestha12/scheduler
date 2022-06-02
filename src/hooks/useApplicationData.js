@@ -26,12 +26,46 @@ export default function useApplicationData() {
       axios.get(urlInterviews)
     ]).then((all) => {
   
-      console.log(all[2].data);
+      
+      //deconstruction
+      const [allDays, allAppointments, allInterviews] = all;
+      console.log("all days", allDays.data);
+      console.log("all appointments", allAppointments.data);
 
-      setState(prev => ({ ...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
+      setState(prev => ({ ...prev, days: allDays.data, appointments: allAppointments.data, interviewers: allInterviews.data }));
     })
   }, []);
 
+  function getDay(day){
+    const weekDays = {
+      Monday: 0,
+      Tuesday: 1,
+      Wednesday: 2,
+      Thursday: 3,
+      Friday: 4
+     
+    }
+  return weekDays[day];
+  }
+  //updateSpots function
+function updateSpots(state, id){
+//got through each appointment and check for the interview object.
+const result = [];
+for(let day of state.days){
+  let spots = 0;
+for(let id of day.appointments){
+  if(state.appointments[id] && !state.appointments[id].interview){
+    spots++;
+  }
+
+}
+//after destructuring, putting new sports in the object.
+result.push({...day, spots});
+}
+
+//setState with the spot.
+return result;
+}
 
   function bookInterview(id, interview) {
     console.log(id, interview);
@@ -46,10 +80,20 @@ export default function useApplicationData() {
 
     return axios.put(`/api/appointments/${id}`, { interview })
       .then((response) => {
+      //update function.
+      const newState ={
+        ...state,
+        appointments,
+       
+      }
+      const days=updateSpots(newState);
+
         setState({
-          ...state,
-          appointments
+          ...newState,        
+          days
         });
+        
+
       })
   }
   function cancelInterview(id) {
@@ -64,10 +108,20 @@ export default function useApplicationData() {
     };
 
     return axios.delete(`/api/appointments/${id}`, appointment).then(() => {
-      setState({
+
+      const newState ={
         ...state,
-        appointments
-      });
+        appointments,
+       
+      }
+
+     const days=updateSpots(newState);
+
+        setState({
+          ...newState,        
+          days
+        });
+      //updatespots
     })
   }
 
