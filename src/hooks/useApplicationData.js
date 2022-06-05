@@ -53,24 +53,24 @@ export default function useApplicationData() {
   // return weekDays[day];
   // }
   //updateSpots function
-function updateSpots(state, id){
-//got through each appointment and check for the interview object.
-const result = [];
-for(let day of state.days){
-  let spots = 0;
-for(let id of day.appointments){
-  if(state.appointments[id] && !state.appointments[id].interview){
-    spots++;
-  }
+// function updateSpots(state, id){
+// //got through each appointment and check for the interview object.
+// const result = [];
+// for(let day of state.days){
+//   let spots = 0;
+// for(let id of day.appointments){
+//   if(state.appointments[id] && !state.appointments[id].interview){
+//     spots++;
+//   }
 
-}
-//after destructuring, putting new sports in the object.
-result.push({...day, spots});
-}
+// }
+// //after destructuring, putting new sports in the object.
+// result.push({...day, spots});
+// }
 
-//setState with the spot.
-return result;
-}
+// //setState with the spot.
+// return result;
+// }
 
   function bookInterview(id, interview) {
     console.log(id, interview);

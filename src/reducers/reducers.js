@@ -2,6 +2,24 @@ export const SET_DAY = "SET_DAY";
 export const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
 export const SET_INTERVIEW = "SET_INTERVIEW";
 
+function updateSpots(state, id){
+  //got through each appointment and check for the interview object.
+  const result = [];
+  for(let day of state.days){
+    let spots = 0;
+  for(let id of day.appointments){
+    if(state.appointments[id] && !state.appointments[id].interview){
+      spots++;
+    }
+  
+  }
+  //after destructuring, putting new sports in the object.
+  result.push({...day, spots});
+  }
+  
+  //setState with the spot.
+  return result;
+  }
 function reducer(state, action) {
   switch (action.type) {
     case SET_DAY:
@@ -38,9 +56,12 @@ function reducer(state, action) {
       //     }
       //   }
       // }
+      const days = updateSpots(newState);
+      
       return {
         //logic
-        ...newState
+        ...newState,
+        days
         
       }
     default:
