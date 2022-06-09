@@ -62,7 +62,7 @@ export default function Form(props) {
           //setInterviewer ={() => onLoad(interviewer.id)}
 
           value={interviewer}
-          onChage={(event) => setInterviewer(event)}
+          onChange={(event) => setInterviewer(event)}
         />
       </section>
       <section className="appointment__card-right">
