@@ -86,8 +86,16 @@ export default {
   put: jest.fn(() => {
     return Promise.resolve({
       status: 200,
-      statusText: "No Content",
+      statusText: "OK",
+      data: fixtures.interview
       
+    })
+  }),
+  delete: jest.fn(() => {
+    return Promise.resolve({
+      status:200,
+      statusText: "OK",
+      data: fixtures.interview
     })
   })
 }
