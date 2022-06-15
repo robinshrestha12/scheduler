@@ -34,19 +34,19 @@ npm run storybook
 
 ### Home Page
 !['Home Page'](https://github.com/robinshrestha12/scheduler/blob/10f2f0bbcda7ecfb6f6bf9439f4469c03aa983b5/docs/Home.png)
-- This is home page.
+-This is home page.
 
 ### Book Appointment
 !['Book an Appointment'](https://github.com/robinshrestha12/scheduler/blob/10f2f0bbcda7ecfb6f6bf9439f4469c03aa983b5/docs/BookAppointment.png)
-- This shows booking appointment.
+-This shows booking appointment.
 
 ### Booked Appointment
 !['Booked Appointment'](https://github.com/robinshrestha12/scheduler/blob/10f2f0bbcda7ecfb6f6bf9439f4469c03aa983b5/docs/Booked&numberofDayschanged.png)
-- This shows booked Appointment along with number of days left.
+-This shows booked Appointment along with number of days left.
 
 ### Edit Appointment
 !['Edit Appointment'](https://github.com/robinshrestha12/scheduler/blob/10f2f0bbcda7ecfb6f6bf9439f4469c03aa983b5/docs/EditingAppointment.png)
-- This is Edit appointment.
+-This is Edit appointment.
 
 ### Delete Appointment
 !['Delete appointment'](https://github.com/robinshrestha12/scheduler/blob/10f2f0bbcda7ecfb6f6bf9439f4469c03aa983b5/docs/DeletingAnAppointment.png)
