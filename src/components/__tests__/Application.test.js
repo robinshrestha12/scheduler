@@ -22,13 +22,9 @@ describe("Application", () => {
     const { container, debug } = render(<Application />);
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
-    //console.log(prettyDOM(container));
     const appointments = getAllByTestId(container, "appointment");
     const appointment = appointments[0];
-    //console.log(prettyDOM(appointments));
 
-    // const appointment = getAllByTestId(container, "appointment")[0];
-    //console.log(prettyDOM(appointment));
 
     fireEvent.click(getByAltText(appointment, "Add"));
 
@@ -39,16 +35,15 @@ describe("Application", () => {
 
     fireEvent.click(getByText(appointment, "Save"));
 
-    //console.log(prettyDOM(appointment));
     expect(getByText(appointment, "Saving")).toBeInTheDocument();
-    //expect(getByText(appointment, "Saving")).not.toBeInTheDocument();
+ 
     await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
 
     const day = getAllByTestId(container, "day").find(day =>
       queryByText(day, "Monday")
     );
     expect(getByText(day, "no spots remaining")).toBeInTheDocument();
-    //console.log(prettyDOM(day));
+ 
   });
   it("2. loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
     // 1. Render the Application.
@@ -142,12 +137,7 @@ describe("Application", () => {
       );
 
       fireEvent.click(queryByAltText(appointment, "Edit"));
-      // fireEvent.change(getByAltText(appointment, "Archie Cohen"), {
-      //   target: { value: "Robin Text Edit" }
-      // });
-      // fireEvent.change(getByText(appointment, "Archie Cohen"), {
-      //   target: { value: "Lydia Miller-Jones" }
-      // });     
+
       fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
         target: { value: "Lydia Miller-Jones Edited" }
       });
@@ -173,7 +163,7 @@ describe("Application", () => {
 
     it("shows the delete error when failing to delete an existing appointment", async () => {
       axios.delete.mockRejectedValueOnce();
-      //debug();
+      
       // 1. Render the Application.
       const { container, debug } = render(<Application />);
 
@@ -202,15 +192,12 @@ describe("Application", () => {
 
 
 
-      // // 8. Check that the DayListItem with the text "Monday" also has the text "2 spots remaining".
+      // 7. Check that the DayListItem with the text "Monday" also has the text "1 spot remaining".
       const day = getAllByTestId(container, "day").find(day =>
         queryByText(day, "Monday")
       );
       expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
 
-      // 7. Wait until the element with the "Add" button is displayed.
 
-      // await waitForElement(() => getByText(appointment, "Could not delete the appointment"));
-      // await waitForElement(() => getByAltText(appointment, "Could not delete appointment"));
     })
 });

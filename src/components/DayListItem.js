@@ -6,6 +6,7 @@ import classNames from "classnames";
 export default function DayListItem(props) {
   let dayClass = classNames("day-list__item", { "day-list__item--selected": props.selected, "day-list__item--full": props.spots === 0 });
 
+  //function returning corresponding text according to the number of spots
   const formatSpots = () => {
     const numberOfSpots = props.spots;
     if (numberOfSpots === 0) {
