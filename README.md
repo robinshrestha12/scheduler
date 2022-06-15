@@ -33,31 +33,31 @@ npm run storybook
 ```
 
 ### Home Page
-!['Home Page']()
+!['Home Page'](https://github.com/robinshrestha12/scheduler/blob/10f2f0bbcda7ecfb6f6bf9439f4469c03aa983b5/docs/Home.png)
 _This is home page.
 
 ### Book Appointment
-!['Book an Appointment']()
+!['Book an Appointment'](https://github.com/robinshrestha12/scheduler/blob/10f2f0bbcda7ecfb6f6bf9439f4469c03aa983b5/docs/BookAppointment.png)
 _This shows booking appointment.
 
 ### Booked Appointment
-!['Booked Appointment']()
+!['Booked Appointment'](https://github.com/robinshrestha12/scheduler/blob/10f2f0bbcda7ecfb6f6bf9439f4469c03aa983b5/docs/Booked&numberofDayschanged.png)
 _This shows booked Appointment along with number of days left.
 
 ### Edit Appointment
-!['Edit Appointment']()
+!['Edit Appointment'](https://github.com/robinshrestha12/scheduler/blob/10f2f0bbcda7ecfb6f6bf9439f4469c03aa983b5/docs/EditingAppointment.png)
 _This is Edit appointment.
 
 ### Delete Appointment
-!['Delete appointment']()
+!['Delete appointment'](https://github.com/robinshrestha12/scheduler/blob/10f2f0bbcda7ecfb6f6bf9439f4469c03aa983b5/docs/DeletingAnAppointment.png)
 _This is delete appointment confirmation.
 
 ## Project Stack
-__Front-End:__React, JSX, HTML, JavaScript, Axios
+__Front-End:__ React, JSX, HTML, JavaScript, Axios
 
-__Back-End:__Node.js, Express, Postgres
+__Back-End:__ Node.js, Express, Postgres
 
-__Testing:__Storybook, Webpack Dev Server, Cypress, Jest
+__Testing:__ Storybook, Webpack Dev Server, Cypress, Jest
 
 ## Dependencies
 -	classnames
