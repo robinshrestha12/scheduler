@@ -46,16 +46,7 @@ function reducer(state, action) {
         appointments: appointments,
 
       }
-      // const newState ={
-      //   ...state,
-      //   appointments: {
-      //     ...state.appointments,
-      //     [action.id]: {
-      //       ...state.appointments[action.id],
-      //       interview: {...action.interview}
-      //     }
-      //   }
-      // }
+      
       const days = updateSpots(newState);
 
       return {
